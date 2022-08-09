@@ -1,0 +1,47 @@
+.list-countries{
+    padding-top: 3rem;
+    box-sizing: border-box;
+    background-color: hsl(207, 26%, 17%);
+    padding-left: 2%;
+    padding-right: 2%;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .card{
+        color: white;
+        background-color: #2b3945;
+        box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.596);
+        .card-body{
+
+            padding-left: 2rem;
+            h5{
+                font-size: 1.3rem;
+                padding-top: 0.6rem;
+                padding-bottom: 0.6rem;
+                font-weight: 800;
+            }
+
+            li{
+                font-size: 0.9rem;
+                list-style: none;
+                padding-bottom: 0.3rem;
+                font-weight: 600;
+                span{
+                    font-weight: 400;
+                }
+            }
+            
+        }
+    }
+    
+    .col-card{
+        flex: 0 0 auto;
+        width: 20%;
+        margin-left: 2%;
+        margin-right: 2%;
+        margin-bottom: 5rem;
+    }
+}
+
