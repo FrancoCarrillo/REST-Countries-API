@@ -15,15 +15,22 @@ function App() {
       </header>
       <div className="action-inputs">
         <div className="input_search">
-          <input list="" type={ "search" } className="form-control" placeholder="Search for a country..."></input>
+          <input  list="conutries_list"  type={ "search" } className="form-control" placeholder="Search for a country..."></input>
           <FontAwesomeIcon className="search_icon" icon={ faSearch } />
         </div>
-          <select className="custom-select" id="inputGroupSelect01">
-            <option defaultValue>Choose...</option>
-            <option value={ "1" }>One</option>
-            <option value={ "2" }>Two</option>
-            <option value={ "3" }>Three</option>
-          </select>
+        <select className="custom-select">
+          <option>Filter by Region</option>
+          <option value={ "Africa" }>Africa</option>
+          <option value={ "America" }>America</option>
+          <option value={ "Asia" }>Asia</option>
+          <option value={ "Europe" }>Europe</option>
+          <option value={ "Oceania" }>Oceania</option>
+        </select>
+        <datalist id="conutries_list">
+          <option value={ "Peru" }/>
+          <option value={ "EEUU" }/>
+          <option value={ "Argentina" }/>
+        </datalist>
       </div>
       <ListCountries></ListCountries>
     </div>
