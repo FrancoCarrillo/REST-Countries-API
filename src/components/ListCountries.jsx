@@ -1,15 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { getCountries } from '../services/CountryService';
 import Country from './Country'
 
 function ListCountries(props) {
 
-    const listCountries = [ 
-        { name: "Peru", capital: "Lima", region: "Americas", population: 80000, flag: 'https://flagcdn.com/pe.svg'  },
-        { name: "Peru", capital: "Lima", region: "Americas", population: 80000, flag: 'https://flagcdn.com/pe.svg'  },
-        { name: "Peru", capital: "Lima", region: "Americas", population: 80000, flag: 'https://flagcdn.com/pe.svg'  },
-        { name: "Peru", capital: "Lima", region: "Americas", population: 80000, flag: 'https://flagcdn.com/pe.svg'  },
-        { name: "Peru", capital: "Lima", region: "Americas", population: 80000, flag: 'https://flagcdn.com/pe.svg'  },
-    ]
+    const [listCountries, setListCountries] = useState([]);
+
+    useEffect(() => {
+        getAllCountries();
+    });
+
+    const getAllCountries = () => {
+        getCountries()
+            .then((response) => {
+                if(response.status === 200) 
+                setListCountries(response.data);
+            })
+    }
 
     return (
         <div className='list-countries'>

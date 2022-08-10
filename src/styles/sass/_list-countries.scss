@@ -13,8 +13,19 @@
         color: white;
         background-color: #2b3945;
         box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.596);
-        .card-body{
 
+        .img-contain{
+
+            height: 50%;
+
+            img{
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .card-body{
             padding-left: 2rem;
             h5{
                 font-size: 1.3rem;

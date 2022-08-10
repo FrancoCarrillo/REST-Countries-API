@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export default axios.create(
     {
-        baseURL: 'https://api.chucknorris.io/jokes/random',
+        baseURL: 'https://restcountries.com/v2/all',
         responseType: 'json',
         timeout: 6000
     }
