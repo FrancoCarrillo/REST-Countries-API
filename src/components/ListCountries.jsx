@@ -1,29 +1,28 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Country from './Country'
 
 function ListCountries(props) {
+
+    const listCountries = [ 
+        { name: "Peru", capital: "Lima", region: "Americas", population: 80000, flag: 'https://flagcdn.com/pe.svg'  },
+        { name: "Peru", capital: "Lima", region: "Americas", population: 80000, flag: 'https://flagcdn.com/pe.svg'  },
+        { name: "Peru", capital: "Lima", region: "Americas", population: 80000, flag: 'https://flagcdn.com/pe.svg'  },
+        { name: "Peru", capital: "Lima", region: "Americas", population: 80000, flag: 'https://flagcdn.com/pe.svg'  },
+        { name: "Peru", capital: "Lima", region: "Americas", population: 80000, flag: 'https://flagcdn.com/pe.svg'  },
+    ]
+
     return (
         <div className='list-countries'>
-            <Country></Country>
-            <Country></Country>
-            <Country></Country>
-            <Country></Country>
-            <Country></Country>
-            <Country></Country>
-            <Country></Country>
-            <Country></Country>
-            <Country></Country>
-            <Country></Country>
-            <Country></Country>
-            <Country></Country>
-            <Country></Country>
-            <Country></Country>
-            <Country></Country>
+            {
+                listCountries.map((country, index) => {
+                    return (
+                        <Country key={ index } country={ country }></Country>
+                    )
+                })
+            }
         </div>
     )
 }
 
-ListCountries.propTypes = {}
 
 export default ListCountries
