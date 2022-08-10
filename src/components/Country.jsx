@@ -4,7 +4,7 @@ function Country({ country }) {
     return (
         <div className="card col-card">
                 <div className='img-contain'>
-                    <img src={ country.flag } className="card-img-top" alt={ country.name }/>
+                    <img src={ country.flags.svg } className="card-img-top" alt={ country.name }/>
                 </div>
                 <div className="card-body">
                     <h5>{ country.name }</h5>

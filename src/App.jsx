@@ -1,9 +1,29 @@
+//Todo: Add Router Communication
+//Todo: Filter by region
+//Todo: Search country 
+
 import "./styles/App.scss";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon, faSearch} from "@fortawesome/free-solid-svg-icons";
 import ListCountries from "./components/ListCountries";
+import { getCountries } from './services/CountryService';
 
 function App() {
+
+  const [listCountriesName, setListCountriesName] = useState([]);
+
+    useEffect(() => {
+        getAllCountries();
+    });
+
+    const getAllCountries = () => {
+        getCountries()
+            .then((response) => {
+                if(response.status === 200) setListCountriesName(response.data);
+            })
+    }
+
   return (
     <div>
       <header>
@@ -27,9 +47,14 @@ function App() {
           <option value={ "Oceania" }>Oceania</option>
         </select>
         <datalist id="conutries_list">
-          <option value={ "Peru" }/>
-          <option value={ "EEUU" }/>
-          <option value={ "Argentina" }/>
+        {
+          listCountriesName.map(( country )=>{
+            return (
+              <option value={ country.name }></option>
+            )
+            
+          })
+        }
         </datalist>
       </div>
       <ListCountries></ListCountries>
