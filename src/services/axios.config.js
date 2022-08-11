@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export default axios.create(
     {
-        baseURL: 'https://restcountries.com/v2/all',
+        baseURL: 'https://restcountries.com/v3.1',
         responseType: 'json',
         timeout: 6000
     }
