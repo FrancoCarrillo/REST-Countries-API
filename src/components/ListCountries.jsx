@@ -1,13 +1,16 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef,} from 'react'
 import { getAllCountries, getCountriesByRegion } from '../services/CountryService';
 import Country from './Country'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch} from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 
 function ListCountries() {
 
     const [listCountries, setListCountries] = useState([]);
     const refSelect = useRef(null)
+    const refInput = useRef(null)
+    let navigate = useNavigate();
 
     useEffect(() => {
         getAllCountries_();
@@ -28,12 +31,18 @@ function ListCountries() {
             })
     }
 
+    const goCountry = (e) => {
+        if(e.key === 'Enter') {
+            navigate(`../country/${refInput.current.value}`, { replace: true });
+        }
+    }
+
     return (
         <div className='list-countries'>
 
             <div className="action-inputs">
                 <div className="input_search">
-                    <input list="conutries_list"  type={ "search" } className="form-control" placeholder="Search for a country..."></input>
+                    <input onKeyDown={ goCountry } ref={ refInput } list="conutries_list"  type={ "search" } className="form-control" placeholder="Search for a country..."></input>
                     <FontAwesomeIcon className="search_icon" icon={ faSearch } />
                 </div>
                 <select className="custom-select" ref={ refSelect } onChange={ filterCountriesByRegion }>
