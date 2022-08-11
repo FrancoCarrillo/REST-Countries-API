@@ -1,6 +1,3 @@
-//Todo: Filter by region
-//Todo: Search country 
-
 import { BrowserRouter as Router, Navigate, Route, Routes } from "react-router-dom";
 
 import "./styles/App.scss";
