@@ -1,9 +1,12 @@
 import React from 'react'
-// import PropTypes from 'prop-types'
+import { useParams } from 'react-router-dom'
 
 function EspecificCountry(props) {
+
+    let countryName = useParams().countryName;
+
     return (
-        <div>EspecificCountry</div>
+        <div>{ countryName }</div>
     )
 }
 

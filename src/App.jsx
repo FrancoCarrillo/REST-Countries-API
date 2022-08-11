@@ -1,31 +1,15 @@
-//Todo: Add Router Communication
 //Todo: Filter by region
 //Todo: Search country 
 
 import { BrowserRouter as Router, Navigate, Route, Routes } from "react-router-dom";
 
 import "./styles/App.scss";
-import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon} from "@fortawesome/free-solid-svg-icons";
 import ListCountries from "./components/ListCountries";
-import { getCountries } from './services/CountryService';
+import EspecificCountry from "./components/EspecificCountry";
 
 function App() {
-
-  const [listCountriesName, setListCountriesName] = useState([]);
-
-    useEffect(() => {
-        getAllCountries();
-    });
-
-    const getAllCountries = () => {
-        getCountries()
-            .then((response) => {
-                if(response.status === 200) setListCountriesName(response.data);
-            })
-    }
-
   return (
     <div>
       <header>
@@ -39,7 +23,7 @@ function App() {
         <Routes>
           <Route path="/" element={ <ListCountries/> }></Route>
           <Route path="*" element={ <Navigate to='/'/> }></Route>
-          <Route path="/"></Route>
+          <Route path="/country/:countryName" element={ <EspecificCountry/> }></Route>
         </Routes>
       </Router>
     </div>
