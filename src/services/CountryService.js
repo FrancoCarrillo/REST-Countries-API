@@ -9,5 +9,9 @@ export function getAllCountries(){
 }
 
 export function getCountriesByRegion(region){
-    return CountryService.get(`/region/${region}`)
+    return  CountryService.get(`/region/${region}`)
+}
+
+export function getCountrieByName(country){
+    return CountryService.get(`/name/${country}`)
 }

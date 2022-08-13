@@ -10,9 +10,22 @@
     justify-content: center;
 
     .card{
+        cursor: pointer;
         color: white;
         background-color: #2b3945;
         box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.596);
+
+        
+
+        &:hover{
+            .hover-opacity{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-color: #00000054;
+                border-radius: 5px;
+            }
+        }
 
         .img-contain{
 

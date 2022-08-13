@@ -16,7 +16,7 @@ function ListCountries() {
         getAllCountries_();
     }, []);
 
-    const getAllCountries_ = () => {
+    function  getAllCountries_() {
         getAllCountries()
             .then((response) => {
                 if(response.status === 200) 
