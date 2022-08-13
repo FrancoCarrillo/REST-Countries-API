@@ -13,5 +13,5 @@ export function getCountriesByRegion(region){
 }
 
 export function getCountrieByName(country){
-    return CountryService.get(`/name/${country}`)
+    return CountryService.get(`https://restcountries.com/v2/name/${country}`)
 }

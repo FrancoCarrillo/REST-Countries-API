@@ -8,23 +8,22 @@ function EspecificCountry() {
 
 
     let navigate = useNavigate();
-    let countryName = useParams().countryName;
+    const countryName = useParams().countryName;
 
-    const [country, setCountry] = useState(null);
+    const [country, setCountry] = useState([]);
 
-    useEffect(() => {
-        getCountry()
-    },[]);
-
-
-    function  getCountry() {
+    
+    useEffect( () => {
         getCountrieByName(countryName)
             .then((response) => {
                 if(response.status === 200){
-                    setCountry(response.data);
+                    setCountry( response.data[0]);
                 } 
             })
-    }
+    }, [countryName]);
+
+
+    
 
     return (
         <div className='especific-information-country-section'>
@@ -36,31 +35,39 @@ function EspecificCountry() {
             </div>
             <div className='especific-information-section'>
                 <div className='country-image'>
-                    <img src='https://flagcdn.com/be.svg' alt=''/>
+                    <img src={ country?.flags?.svg } alt={ country[0]?.name }/>
                 </div>
                 <div className='right-section'>
                     <div className='country-information'>
-                        <h2>Belgica</h2>
+                        <h2>{ country[0]?.name }</h2>
                         <div className='information-country'>
                             <div>
-                                <li>Native Name: <span>Belgium</span></li>
-                                <li>Population: <span>11,35789</span></li>
-                                <li>Region: <span>Europe</span></li>
-                                <li>Sub Region: <span>Western Europe</span></li>
-                                <li>Capital: <span>Brussels</span></li>
+                                <li>Native Name: { country?.nativeName }
+                                </li>
+                                <li>Population: <span>{ country?.population }</span></li>
+                                <li>Region: <span>{ country?.region }</span></li>
+                                <li>Sub Region: <span>{ country?.subregion }</span></li>
+                                <li>Capital: <span>{ country?.capital }</span></li>
                             </div>
                             <div>
-                                <li>Top Level Domain: <span>.be</span></li>
-                                <li>Currencies: <span>Euro</span></li>
-                                <li>Languages: <span>Dutch, French</span></li>
+                                <li>Top Level Domain: <span>{ country?.topLevelDomain }</span></li>
+                                <li>Currencies: <span>{ country?.currencies && country?.currencies[0].name }</span></li>
+                                <li>Languages: {
+                                    country?.languages && country?.languages.map((language) => {
+                                        return <span>{language.name}{ country.languages.length === 1 ? " " : ", " }</span>
+                                    })
+                                }</li>
                             </div>
                         </div>
                     </div>
                     <div className='border-countries-section'>
                         <li>Border Countries: </li>
-                        <div>France</div>
-                        <div>Germany</div>
-                        <div>Nertherlands</div>
+                        {
+                            country?.borders && country?.borders.map((border)=>{
+                                return <div>{border}</div>
+                            })
+                        }
+                        
                     </div>
                 </div>
             </div>
