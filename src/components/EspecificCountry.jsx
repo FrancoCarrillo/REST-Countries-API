@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { useParams, useNavigate } from "react-router-dom";
 import { getCountrieByName } from '../services/CountryService';
+import BorderCountry from './BorderCountry';
 
 function EspecificCountry() {
 
@@ -63,8 +64,10 @@ function EspecificCountry() {
                     <div className='border-countries-section'>
                         <li>Border Countries: </li>
                         {
-                            country?.borders && country?.borders.map((border)=>{
-                                return <div>{border}</div>
+                            country?.borders && country?.borders.map((border, index)=>{
+                                return (
+                                        <BorderCountry key={ index } border={ border }></BorderCountry>
+                                    )
                             })
                         }
                         
