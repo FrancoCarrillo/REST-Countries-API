@@ -40,7 +40,7 @@ function EspecificCountry() {
                 </div>
                 <div className='right-section'>
                     <div className='country-information'>
-                        <h2>{ country[0]?.name }</h2>
+                        <h2>{ country?.name }</h2>
                         <div className='information-country'>
                             <div>
                                 <li>Native Name: { country?.nativeName }
@@ -61,17 +61,22 @@ function EspecificCountry() {
                             </div>
                         </div>
                     </div>
-                    <div className='border-countries-section'>
-                        <li>Border Countries: </li>
-                        {
-                            country?.borders && country?.borders.map((border, index)=>{
-                                return (
-                                        <BorderCountry key={ index } border={ border }></BorderCountry>
-                                    )
-                            })
-                        }
+                    {
+                        country?.borders?.length > 0 ? (
+                            <div className='border-countries-section'>
+                                <li>Border Countries: </li>
+                                {
+
+                                    country?.borders && country?.borders.map((border, index)=>{
+                                        return (
+                                                <BorderCountry key={ index } border={ border }></BorderCountry>
+                                            )
+                                    })
+                                }
                         
-                    </div>
+                            </div>): <></>
+                    }
+
                 </div>
             </div>
         </div>
