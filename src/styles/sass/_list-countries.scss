@@ -1,7 +1,24 @@
+#light{
+    background-color: hsl(0, 0%, 98%);
+
+    .card{
+        color: hsl(200, 15%, 8%);
+        background-color: hsl(0, 0%, 100%);
+    }
+}
+
+#dark{
+    background-color: hsl(207, 26%, 17%);
+    .card{
+        color: white;
+        background-color: #2b3945;
+    }
+}
+
 .list-countries{
     padding-top: 3rem;
     box-sizing: border-box;
-    background-color: hsl(207, 26%, 17%);
+    
     padding-left: 2%;
     padding-right: 2%;
 
@@ -11,8 +28,6 @@
 
     .card{
         cursor: pointer;
-        color: white;
-        background-color: #2b3945;
         box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.596);
 
         

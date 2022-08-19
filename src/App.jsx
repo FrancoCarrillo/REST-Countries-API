@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Navigate, Route, Routes } from "react-router-dom";
+import React, { useState } from 'react';
 
 import "./styles/App.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,14 +8,32 @@ import ListCountries from "./components/ListCountries";
 import EspecificCountry from "./components/EspecificCountry";
 
 function App() {
+
+  const [mode, setMode] = useState("light");
+
+  const changeMode = (e) => {
+    switch (mode) {
+      case 'light':
+        setMode('dark')
+        break;
+    
+      case 'dark':
+        setMode('light')
+        break;
+      
+      default:
+        break;
+    }
+  }
+
   return (
-    <div>
+    <div id={ mode }>
       <header>
         <h1>Where in the world?</h1>
-        <a href="/">
+        <span  onClick={ changeMode }>
           <FontAwesomeIcon className="header_icon" icon={ faMoon } />
           Dark Mode
-        </a>
+        </span>
       </header>
       <Router>
         <Routes>
