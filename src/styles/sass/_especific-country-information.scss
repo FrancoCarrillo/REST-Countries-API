@@ -146,3 +146,48 @@
         }
     }
 }
+
+@media all and (max-width: 900px){
+    .especific-information-country-section{
+        height: 100%;
+        padding-left: 2rem;
+    
+        .action-section{
+            padding-top: 3rem;
+        }
+    
+        .especific-information-section{
+            padding-top: 5rem;
+            flex-direction: column;
+            .country-image{
+                img{
+                    width: 100%;
+                    padding-left: .5rem;
+                    padding-right: 1.5rem;
+                }
+            }
+    
+            .right-section{
+                .country-information{
+
+                    h2{
+                        margin-left: .5rem;
+                    }
+                    .information-country{
+                        margin-bottom: 2rem;
+                        flex-direction: column;
+                        div{
+                            margin-bottom: 2rem;
+                            margin-left: .5rem;
+                        }
+                    }
+                }
+    
+                .border-countries-section{
+                    margin-left: .5rem;
+                    margin-bottom: 4rem;
+                }
+            }
+        }
+    }
+}

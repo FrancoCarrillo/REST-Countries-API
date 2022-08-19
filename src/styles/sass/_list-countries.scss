@@ -84,3 +84,20 @@
     }
 }
 
+@media all and (max-width: 850px) {
+
+    .list-countries{
+        padding-top: 2rem;
+        
+        padding-left: 0;
+        padding-right: 0;
+    
+        flex-direction: column;
+        .col-card{
+            width: 80%;
+            margin: 1rem 3rem;
+        }
+    }
+    
+    
+}
