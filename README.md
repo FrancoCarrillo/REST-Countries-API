@@ -28,7 +28,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: https://github.com/FrancoCarrillo/REST-Countries-API
-- Live Site URL: https://francocarrillo.github.io/Fylo-Landing-Page/
+- Live Site URL: https://franco-country-api.web.app/
 
 ## My process
 
